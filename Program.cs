@@ -2,8 +2,8 @@
 using ArraySort.Algorithms;
 using ArraySort.Model;
 
-int[] sizes = { 1000, 10000 };
-object[] algorithms = { new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort() };
+int[] sizes = { 1000, 10000, 100000 };
+object[] algorithms = { new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort(), new SelectionSort(), new MergeSort() };
 
 foreach (object algorithm in algorithms)
 {
@@ -35,7 +35,14 @@ foreach (object algorithm in algorithms)
             stopwatch.Start();
             algorithm.GetType().GetMethod("Sort").Invoke(algorithm, new object[] { arr });
             stopwatch.Stop();
-            Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\nComparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}\nTrocas: {algorithm.GetType().GetProperty("Swaps").GetValue(algorithm)}\n");
+            try
+            {
+                Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\nComparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}\nTrocas: {algorithm.GetType().GetProperty("Swaps").GetValue(algorithm)}\n");
+            }
+            catch
+            {
+                Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\nComparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}\nMesclas: {algorithm.GetType().GetProperty("Merges").GetValue(algorithm)}\n");
+            }
         }
     }
 }
