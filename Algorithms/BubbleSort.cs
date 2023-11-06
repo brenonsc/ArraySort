@@ -2,22 +2,25 @@ namespace ArraySort.Algorithms;
 
 public class BubbleSort
 {
-    public static void Sort(int[] arr)
+    public int Comparisons { get; private set; }
+    public int Swaps { get; private set; }
+
+    public void Sort(int[] arr)
     {
+        Comparisons = 0;
+        Swaps = 0;
         int n = arr.Length;
-        bool swapped;
-        do
+        for (int i = 0; i < n - 1; i++)
         {
-            swapped = false;
-            for (int i = 1; i < n; i++)
+            for (int j = 0; j < n - i - 1; j++)
             {
-                if (arr[i - 1] > arr[i])
+                Comparisons++;
+                if (arr[j] > arr[j + 1])
                 {
-                    // Troca os elementos arr[i-1] e arr[i]
-                    (arr[i - 1], arr[i]) = (arr[i], arr[i - 1]);
-                    swapped = true;
+                    Swaps++;
+                    (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
                 }
             }
-        } while (swapped);
+        }
     }
 }
