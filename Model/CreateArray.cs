@@ -32,13 +32,4 @@ public class CreateArray
         }
         return array;
     }
-
-    public static void Print(int[] array)
-    {
-        foreach (int num in array)
-        {
-            Console.Write(num + " ");
-        }
-        Console.WriteLine();
-    }
 }
