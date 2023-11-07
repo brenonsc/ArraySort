@@ -3,7 +3,7 @@ using ArraySort.Algorithms;
 using ArraySort.Model;
 
 int[] sizes = { 1000, 10000, 100000 };
-object[] algorithms = { new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort(), new SelectionSort(), new MergeSort() };
+object[] algorithms = { new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort(), new SelectionSort(), new MergeSort(), new QuickSort() };
 
 foreach (object algorithm in algorithms)
 {
