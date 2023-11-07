@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 using ArraySort.Algorithms;
 using ArraySort.Model;
 
@@ -11,9 +12,9 @@ object[] algorithms =
 
 foreach (object algorithm in algorithms)
 {
-    Console.WriteLine("\n---------------------------------");
-    Console.WriteLine($"{algorithm.GetType().Name}");
-    Console.WriteLine("---------------------------------");
+    Console.WriteLine("\n---------------------------------" +
+                      $"{AddSpaceBeforeUppercase(algorithm.GetType().Name)}" +
+                      "---------------------------------");
     
     foreach (int size in sizes)
     {
@@ -51,4 +52,24 @@ foreach (object algorithm in algorithms)
             }
         }
     }
+}
+
+static string AddSpaceBeforeUppercase(string input)
+{
+    if (string.IsNullOrEmpty(input))
+        return input;
+
+    StringBuilder result = new StringBuilder();
+    result.Append(input[0]);
+
+    for (int i = 1; i < input.Length; i++)
+    {
+        if (char.IsUpper(input[i]))
+        {
+            result.Append(' ');
+        }
+        result.Append(input[i]);
+    }
+
+    return result.ToString();
 }
