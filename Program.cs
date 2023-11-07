@@ -3,17 +3,23 @@ using ArraySort.Algorithms;
 using ArraySort.Model;
 
 int[] sizes = { 1000, 10000, 100000 };
-object[] algorithms = { new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort(), new SelectionSort(), new MergeSort(), new QuickSort() };
+object[] algorithms =
+{
+    new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort(), 
+    new SelectionSort(), new MergeSort(), new QuickSort(), new ShellSort()
+};
 
 foreach (object algorithm in algorithms)
 {
-    Console.WriteLine("\n--------------------------------------------------");
-    Console.WriteLine($"{algorithm.GetType().Name.ToUpper()}");
-    Console.WriteLine("--------------------------------------------------");
+    Console.WriteLine("\n---------------------------------");
+    Console.WriteLine($"{algorithm.GetType().Name}");
+    Console.WriteLine("---------------------------------");
     
     foreach (int size in sizes)
     {
-        Console.WriteLine($"************************\n{size} elementos\n************************");
+        Console.WriteLine("************************\n" +
+                          $"{size} elementos\n" +
+                          "************************");
         
         int[] ascending = CreateArray.Ascending(size);
         int[] random = CreateArray.Random(size);
