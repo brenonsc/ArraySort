@@ -4,7 +4,7 @@ using ArraySort.Algorithms;
 using ArraySort.Model;
 using ArraySort.Util;
 
-int[] sizes = { 1000, 10000 };
+int[] sizes = { 1000, 10000, 100000 };
 object[] algorithms =
 {
     new BubbleSort(), new ImprovedBubbleSort(), new InsertionSort(), 
