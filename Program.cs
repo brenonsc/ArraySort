@@ -43,13 +43,17 @@ foreach (object algorithm in algorithms)
             stopwatch.Start();
             algorithm.GetType().GetMethod("Sort").Invoke(algorithm, new object[] { arr });
             stopwatch.Stop();
+            
+            Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\n" +
+                              $"Comparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}");
+            
             try
             {
-                Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\nComparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}\nTrocas: {algorithm.GetType().GetProperty("Swaps").GetValue(algorithm)}\n");
+                Console.WriteLine($"Trocas: {algorithm.GetType().GetProperty("Swaps").GetValue(algorithm)}\n");
             }
             catch
             {
-                Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\nComparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}\nMesclas: {algorithm.GetType().GetProperty("Merges").GetValue(algorithm)}\n");
+                Console.WriteLine($"Mesclas: {algorithm.GetType().GetProperty("Merges").GetValue(algorithm)}\n");
             }
         }
     }
