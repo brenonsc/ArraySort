@@ -45,15 +45,15 @@ foreach (object algorithm in algorithms)
             stopwatch.Stop();
             
             Console.WriteLine($"{arrayName}:\nTempo: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}\n" +
-                              $"Comparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm)}");
+                              $"Comparações: {algorithm.GetType().GetProperty("Comparisons").GetValue(algorithm):N0}");
             
             try
             {
-                Console.WriteLine($"Trocas: {algorithm.GetType().GetProperty("Swaps").GetValue(algorithm)}\n");
+                Console.WriteLine($"Trocas: {algorithm.GetType().GetProperty("Swaps").GetValue(algorithm):N0}\n");
             }
             catch
             {
-                Console.WriteLine($"Mesclas: {algorithm.GetType().GetProperty("Merges").GetValue(algorithm)}\n");
+                Console.WriteLine($"Mesclas: {algorithm.GetType().GetProperty("Merges").GetValue(algorithm):N0}\n");
             }
         }
     }
