@@ -20,7 +20,7 @@ foreach (object algorithm in algorithms)
     foreach (int size in sizes)
     {
         Console.WriteLine("************************\n" +
-                          $"{size} elementos\n" +
+                          $"{size.ToString("N0")} elementos\n" +
                           "************************");
         
         int[] ascending = CreateArray.Ascending(size);
