@@ -2,8 +2,8 @@ namespace ArraySort.Algorithms;
 
 public class InsertionSort
 {
-    public int Comparisons { get; private set; }
-    public int Swaps { get; private set; }
+    public double Comparisons { get; private set; }
+    public double Swaps { get; private set; }
 
     public void Sort(int[] arr)
     {

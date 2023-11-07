@@ -2,8 +2,8 @@ namespace ArraySort.Algorithms;
 
 public class MergeSort
 {
-    public int Comparisons { get; private set; }
-    public int Merges { get; private set; }
+    public double Comparisons { get; private set; }
+    public double Merges { get; private set; }
 
     public void Sort(int[] arr)
     {
