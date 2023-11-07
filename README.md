@@ -48,7 +48,7 @@ Você pode executar o programa de ordenação de arrays usando o Visual Studio o
 
 1. **Clone o repositório**:
 
-`git clone https://github.com/brenonsc/ArraySort.git`
+    `git clone https://github.com/brenonsc/ArraySort.git`
 
 2. **Abra a solução `ArraySort.sln` no Visual Studio ou em sua IDE preferida**.
 3. **Compile e execute o programa**.
