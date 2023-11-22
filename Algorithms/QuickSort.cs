@@ -24,7 +24,13 @@ public class QuickSort
 
     private int Partition(int[] arr, int low, int high)
     {
-        int pivot = arr[high];
+        // Escolhe o elemento do meio como pivot
+        int mid = (low + high) / 2;
+        int pivot = arr[mid];
+
+        // Troca o pivot com o último elemento
+        Swap(arr, mid, high);
+
         int i = low - 1;
 
         for (int j = low; j < high; j++)
